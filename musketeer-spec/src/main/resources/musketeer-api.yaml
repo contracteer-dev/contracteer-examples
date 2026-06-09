@@ -11,6 +11,8 @@
 # - Automatic 400 verification case generation from schema constraints
 # - $ref references in examples (components/examples)
 # - RFC 7807 Problem Details for error responses (application/problem+json)
+# - Regex pattern on a string value (pattern-conformant generation by the
+#   mock, validation by the verifier)
 # =============================================================================
 
 openapi: 3.0.4
@@ -75,6 +77,11 @@ paths:
               description: URL of the newly created musketeer
               schema:
                 type: string
+                # [Contracteer] Regex pattern — Contracteer generates a header
+                # value that matches it, so a generated Location is a real route
+                # (e.g. /musketeers/57) rather than a random string, and the
+                # verifier validates the server's Location against the same pattern.
+                pattern: '^/musketeers/[1-9][0-9]{0,6}$'
               # [Contracteer] Correlated example — the key D_ARTAGNAN_JOINS
               # matches the request body, pairing request and response values
               # into a single scenario.
@@ -250,6 +257,9 @@ paths:
               description: URL of the newly created mission
               schema:
                 type: string
+                # [Contracteer] Regex pattern — see POST /musketeers. Keeps a
+                # generated Location routable; also validated by the verifier.
+                pattern: '^/missions/[1-9][0-9]{0,6}$'
               # [Contracteer] Single example keyword on response header —
               # correlates with the request body via the synthetic "_example" key.
               example: /missions/3
@@ -272,9 +282,9 @@ paths:
           schema:
             type: integer
             minimum: 1
-          # [Contracteer] Same pattern as GET /musketeers/{id} — named
-          # examples correlated with 200 response body, plus a
-          # status-code-prefixed key targeting 404.
+          # [Contracteer] Same structure as GET /musketeers/{id} for the
+          # 200/404 scenarios; here the 400 case relies on auto type-mismatch
+          # generation (see the 400 response below).
           examples:
             DIAMOND_STUDS:
               value: 1

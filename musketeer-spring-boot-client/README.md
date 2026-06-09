@@ -38,7 +38,7 @@ property, and stops it when the test context closes.
         openApiDoc = "classpath:musketeer-api.yaml",
         baseUrlProperty = "musketeer.api.base-url"
 )
-class MusketeerApiClientSpringBootTest {
+class MusketeerApiClientTest {
 
   @Autowired
   MusketeerApiClient client;

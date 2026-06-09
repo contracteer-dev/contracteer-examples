@@ -39,7 +39,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
         openApiDoc = "classpath:musketeer-api.yaml",
         baseUrlProperty = "musketeer.api.base-url"
 )
-class MusketeerApiClientSpringBootTest {
+class MusketeerApiClientTest {
 
   @Autowired
   MusketeerApiClient client;
