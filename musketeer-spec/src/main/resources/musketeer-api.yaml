@@ -1,18 +1,20 @@
 # =============================================================================
 # Musketeer API — OpenAPI Specification
 #
-# This specification demonstrates Contracteer features:
+# This specification demonstrates a subset of Contracteer's features.
+# Full OAS 3 coverage:
+# https://sabai-tech.github.io/contracteer/latest/concepts/openapi-coverage/
 #
-# - Named examples (examples keyword) for scenario extraction
-# - Single example (example keyword) for scenario extraction
-# - Status-code-prefixed example keys (404_*, 400_*) for targeting specific
-#   response status codes without requiring matching response examples
-# - Correlated examples across request parameters, headers, and response bodies
-# - Automatic 400 verification case generation from schema constraints
-# - $ref references in examples (components/examples)
-# - RFC 7807 Problem Details for error responses (application/problem+json)
-# - Regex pattern on a string value (pattern-conformant generation by the
-#   mock, validation by the verifier)
+# Contracteer behaviors:
+# - Scenario extraction from examples/example (intersection rule)
+# - Status-code-prefixed example keys (404_*, 400_*)
+# - Correlated examples across params, headers, and bodies
+# - Automatic 400 case generation from schema constraints
+# - $ref resolution inside examples
+# - Per-response content types (application/json + application/problem+json)
+#
+# OAS 3 features used here:
+# - enum, regex pattern, readOnly (request vs response variants)
 # =============================================================================
 
 openapi: 3.0.4
@@ -50,8 +52,12 @@ paths:
         required: true
         content:
           application/json:
+            # [Contracteer] readOnly request body — the same Musketeer schema is
+            # used here and in responses. Its id is readOnly, so Contracteer
+            # drops it from the request variant (not expected, not generated);
+            # the example below omits id accordingly.
             schema:
-              $ref: '#/components/schemas/CreateMusketeer'
+              $ref: '#/components/schemas/Musketeer'
             # [Contracteer] Named examples — each key becomes a scenario when
             # a response example shares the same key (intersection rule).
             examples:
@@ -235,8 +241,11 @@ paths:
         required: true
         content:
           application/json:
+            # [Contracteer] readOnly request body — same as POST /musketeers:
+            # the Mission schema serves both create and read; its readOnly id is
+            # dropped from the request variant, so the example omits id.
             schema:
-              $ref: '#/components/schemas/CreateMission'
+              $ref: '#/components/schemas/Mission'
             # [Contracteer] Single example keyword (not examples) — Contracteer
             # converts it to a synthetic key "_example" and applies the standard
             # intersection rule.
@@ -353,9 +362,13 @@ components:
         - rank
         - weapon
       properties:
+        # [Contracteer] readOnly id — server-generated. Present and required in
+        # responses; excluded from the request variant (the POST body). One
+        # schema serves both directions, so there is no separate CreateMusketeer.
         id:
           type: integer
           minimum: 1
+          readOnly: true
         name:
           type: string
         rank:
@@ -376,51 +389,12 @@ components:
         - status
         - musketeers
       properties:
+        # [Contracteer] readOnly id — see Musketeer. Required in responses,
+        # excluded from the request variant; no separate CreateMission.
         id:
           type: integer
           minimum: 1
-        title:
-          type: string
-        description:
-          type: string
-        status:
-          type: string
-          enum:
-            - PLANNED
-            - IN_PROGRESS
-            - COMPLETED
-        musketeers:
-          type: array
-          items:
-            type: integer
-            minimum: 1
-
-    CreateMusketeer:
-      type: object
-      required:
-        - name
-        - rank
-        - weapon
-      properties:
-        name:
-          type: string
-        rank:
-          type: string
-          enum:
-            - CADET
-            - MUSKETEER
-            - CAPTAIN
-        weapon:
-          type: string
-
-    CreateMission:
-      type: object
-      required:
-        - title
-        - description
-        - status
-        - musketeers
-      properties:
+          readOnly: true
         title:
           type: string
         description:
