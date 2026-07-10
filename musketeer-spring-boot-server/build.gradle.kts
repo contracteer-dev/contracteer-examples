@@ -22,10 +22,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-validation")
 
-    // OpenAPI specification
+    // OpenAPI document
     implementation("tech.sabai.contracteer.examples:musketeer-spec:1.0.0")
 
-    // Swagger UI — serves a hand-written OpenAPI spec (no annotation-based generation).
+    // Swagger UI — serves a hand-written OpenAPI document (no annotation-based generation).
     // WebConfig exposes musketeer-api.yaml as a static resource, and
     // springdoc.swagger-ui.url in application.yml points Swagger UI to it.
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6")

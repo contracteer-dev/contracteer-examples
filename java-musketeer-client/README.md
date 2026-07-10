@@ -24,7 +24,7 @@ See the [Mock an API Programmatically](https://sabai-tech.github.io/contracteer/
 // Mock server (test dependency)
 testImplementation("tech.sabai.contracteer:contracteer-mockserver:<version>")
 
-// OpenAPI specification (on the classpath)
+// OpenAPI document (on the classpath)
 implementation("tech.sabai.contracteer.examples:musketeer-spec:1.0.0")
 ```
 
@@ -52,7 +52,7 @@ Seven operations:
 
 ## Mock Server Setup
 
-Load the OpenAPI specification, create a `MockServer`, and
+Load the OpenAPI document, create a `MockServer`, and
 start it:
 
 ```java
@@ -103,7 +103,7 @@ the mock server's port.
 
 The mock server validates every incoming request against
 the OpenAPI schema and determines its response from the
-specification:
+OpenAPI document:
 
 - **Valid requests** receive a spec-compliant response.
   When request values match a scenario defined via OpenAPI
@@ -119,7 +119,7 @@ specification:
 
 See the
 [Spring Boot client example](../musketeer-spring-boot-client/)
-for a detailed walkthrough with OpenAPI spec excerpts
+for a detailed walkthrough with OpenAPI document excerpts
 showing how scenario matching, request validation, and
 schema-only responses work.
 
@@ -129,7 +129,7 @@ Tests assert response structure (not null, present, positive
 id) rather than specific values. Even when a scenario
 matches and returns deterministic values, tests should not
 depend on them -- the exact values may change when the
-specification evolves. Coupling assertions to example data
+OpenAPI document evolves. Coupling assertions to example data
 would make tests brittle and turn them into functional
 tests rather than client integration tests.
 

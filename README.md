@@ -2,14 +2,14 @@
 
 Working examples that demonstrate how to use
 [Contracteer](https://github.com/sabai-tech/contracteer)
-for contract testing with OpenAPI specifications.
+for contract testing with OpenAPI documents.
 
 For concepts, getting started guides, and troubleshooting, see the
 [Contracteer documentation](https://sabai-tech.github.io/contracteer/latest/).
 
 ## Which Example Is for Me?
 
-All examples share a single OpenAPI specification
+All examples share a single OpenAPI document
 ([musketeer-spec](musketeer-spec/)) as the source of
 truth.
 
@@ -27,7 +27,7 @@ test. The Spring Boot example is just one implementation.
 
 ```
 contracteer-examples/
-  musketeer-spec/                  OpenAPI specification (shared)
+  musketeer-spec/                  OpenAPI document (shared)
   musketeer-spring-boot-server/    Server verified with contracteer-verifier-junit
   musketeer-spring-boot-client/    Client tested with contracteer-mockserver (Spring Boot)
   java-musketeer-client/           Client tested with contracteer-mockserver (plain Java)
@@ -42,7 +42,7 @@ contracteer-examples/
 
 Each project is a standalone Gradle project with its own
 `gradlew` wrapper. Before running any project, publish the
-shared specification:
+shared OpenAPI document:
 
 ```bash
 cd musketeer-spec

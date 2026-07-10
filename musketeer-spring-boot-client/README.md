@@ -21,14 +21,14 @@ See the [Mock an API with Spring Boot](https://sabai-tech.github.io/contracteer/
 // Mock server (Spring integration)
 testImplementation("tech.sabai.contracteer:contracteer-mockserver-spring:<version>")
 
-// OpenAPI specification
+// OpenAPI document
 implementation("tech.sabai.contracteer.examples:musketeer-spec:1.0.0")
 ```
 
 ## Mock Server Setup
 
 `@ContracteerMockServer` starts a mock server from the
-OpenAPI specification, injects its base URL into a Spring
+OpenAPI document, injects its base URL into a Spring
 property, and stops it when the test context closes.
 
 ```java
@@ -65,13 +65,13 @@ the classpath.
 
 The mock server is not a hand-written stub. For each
 incoming request, it validates against the full OpenAPI
-schema and determines the response from the specification.
+schema and determines the response from the OpenAPI document.
 
 ### Request Validation
 
 Sending a request body with rank `KNIGHT` to
 `POST /musketeers` triggers a 400 response. The
-specification declares an enum constraint on the `rank`
+OpenAPI document declares an enum constraint on the `rank`
 field:
 
 ```yaml
@@ -92,7 +92,7 @@ rule for this -- the schema itself drives the rejection.
 
 Sending `{name: "d'Artagnan", rank: "CADET",
 weapon: "Rapier"}` to `POST /musketeers` matches the
-`D_ARTAGNAN_JOINS` scenario defined in the specification:
+`D_ARTAGNAN_JOINS` scenario defined in the OpenAPI document:
 
 ```yaml
 post:
@@ -136,7 +136,7 @@ targets the 404 response directly.
 ### Schema-Only Response
 
 Calling `GET /musketeers` hits an operation with no
-`examples` in the specification. No scenario to match.
+`examples` in the OpenAPI document. No scenario to match.
 The mock server generates a response with random values
 conforming to the response schema (an array of
 `Musketeer` objects).
@@ -157,7 +157,7 @@ Tests assert response structure (not null, present, positive
 id) rather than specific values. Even when a scenario
 matches and returns deterministic values, tests should not
 depend on them -- the exact values may change when the
-specification evolves. Coupling assertions to example data
+OpenAPI document evolves. Coupling assertions to example data
 would make tests brittle and turn them into functional
 tests rather than client integration tests.
 

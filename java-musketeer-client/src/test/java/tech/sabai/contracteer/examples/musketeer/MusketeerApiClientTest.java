@@ -4,7 +4,7 @@ package tech.sabai.contracteer.examples.musketeer;
 // Assertions verify response structure (not null, present, positive id)
 // rather than specific values. The mock server returns scenario-matched
 // or schema-generated responses — tests should not depend on example
-// data from the specification.
+// data from the OpenAPI document.
 // ---------------------------------------------------------------------------
 
 import org.junit.jupiter.api.AfterAll;

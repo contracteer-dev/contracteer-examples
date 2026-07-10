@@ -24,7 +24,7 @@ dependencies {
     // in application.yml — this project is a pure client, not a server.
     implementation("org.springframework.boot:spring-boot-starter-web")
 
-    // OpenAPI specification
+    // OpenAPI document
     implementation("tech.sabai.contracteer.examples:musketeer-spec:1.0.0")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")

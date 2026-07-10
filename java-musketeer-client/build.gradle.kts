@@ -17,7 +17,7 @@ repositories {
 }
 
 dependencies {
-    // OpenAPI specification
+    // OpenAPI document
     implementation("tech.sabai.contracteer.examples:musketeer-spec:1.0.0")
 
     // JSON serialization

@@ -4,7 +4,7 @@ package tech.sabai.contracteer.examples.musketeer;
 // Spring Boot integration test — uses @ContracteerMockServer to start the
 // mock server automatically within the Spring test context.
 //
-// The annotation loads the OpenAPI spec, starts a mock server on a random
+// The annotation loads the OpenAPI document, starts a mock server on a random
 // port, and injects its base URL into the specified Spring property. The
 // MusketeerApiClient is autowired and configured via that property.
 //
@@ -14,7 +14,7 @@ package tech.sabai.contracteer.examples.musketeer;
 // Assertions verify response structure (not null, present, positive id)
 // rather than specific values. The mock server returns scenario-matched
 // or schema-generated responses — tests should not depend on example
-// data from the specification.
+// data from the OpenAPI document.
 // ---------------------------------------------------------------------------
 
 import org.junit.jupiter.api.DisplayName;

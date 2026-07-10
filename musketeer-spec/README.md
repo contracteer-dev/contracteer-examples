@@ -1,6 +1,6 @@
 # musketeer-spec
 
-OpenAPI specification for the Musketeer API, packaged as a
+OpenAPI document for the Musketeer API, packaged as a
 Maven artifact so all example projects can depend on it.
 
 ## What It Contains
@@ -38,13 +38,13 @@ Each consumer project declares a dependency on this artifact:
 implementation("tech.sabai.contracteer.examples:musketeer-spec:1.0.0")
 ```
 
-The specification file is on the classpath and accessible via
+The OpenAPI document is on the classpath and accessible via
 `classpath:musketeer-api.yaml` in both Contracteer annotations
 and programmatic usage.
 
 ## Contracteer Features Demonstrated
 
-The specification is designed to showcase how Contracteer
+The OpenAPI document is designed to showcase how Contracteer
 uses OpenAPI features. The YAML file includes inline
 `[Contracteer]` comments that explain each feature in
 context -- open it alongside this summary.
@@ -53,7 +53,7 @@ context -- open it alongside this summary.
 
 Contracteer creates scenarios from OpenAPI example keys.
 The following sections show the different mechanisms at work
-in this specification.
+in this OpenAPI document.
 
 #### Example keys and the intersection rule
 

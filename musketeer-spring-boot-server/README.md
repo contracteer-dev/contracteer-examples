@@ -1,7 +1,7 @@
 # musketeer-spring-boot-server
 
 Spring Boot implementation of the Musketeer API, verified
-against its OpenAPI specification using
+against its OpenAPI document using
 [contracteer-verifier-junit](https://github.com/sabai-tech/contracteer/tree/main/contracteer-verifier-junit).
 This project walks through the setup, the test data
 strategy, and what Contracteer generates from the spec.
@@ -20,7 +20,7 @@ See the [Verify Your API with JUnit 5](https://sabai-tech.github.io/contracteer/
 // Contract verification
 testImplementation("tech.sabai.contracteer:contracteer-verifier-junit:<version>")
 
-// OpenAPI specification
+// OpenAPI document
 implementation("tech.sabai.contracteer.examples:musketeer-spec:1.0.0")
 ```
 
@@ -84,14 +84,14 @@ classpath.
 ./gradlew test
 ```
 
-Contracteer reads the specification and generates one JUnit
+Contracteer reads the OpenAPI document and generates one JUnit
 test per verification case:
 
 <img src="images/test-results.png" alt="Test results in IntelliJ IDEA" width="500">
 
 The test tree shows four kinds of verification cases. The
 following sections walk through each one using concrete
-examples from this specification.
+examples from this OpenAPI document.
 
 ### Named Scenarios
 
@@ -100,7 +100,7 @@ specific status code. Contracteer creates scenarios from
 example keys that appear on both request and response
 elements.
 
-In the specification, `GET /musketeers/{id}` defines the
+In the OpenAPI document, `GET /musketeers/{id}` defines the
 key `ATHOS` on both the path parameter and the response
 body:
 
@@ -180,7 +180,7 @@ works for every operation that declares a 400 response.
 ### Schema-Only Fallback
 
 `GET /musketeers` and `GET /missions` have no `examples`
-in the specification. Contracteer generates a verification
+in the OpenAPI document. Contracteer generates a verification
 case using random values that conform to the schema and
 validates the response structure.
 
@@ -220,7 +220,7 @@ not specific values.
 
 ## Error Responses
 
-The specification defines 400 responses with content type
+The OpenAPI document defines 400 responses with content type
 `application/problem+json` and a `ProblemDetail` schema:
 
 ```yaml
@@ -248,4 +248,4 @@ type-mismatch cases.
 
 The server starts on `http://localhost:8080`. Swagger UI
 is available at `/swagger-ui/index.html`, serving the
-OpenAPI specification directly.
+OpenAPI document directly.
