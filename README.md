@@ -1,11 +1,11 @@
 # Contracteer Examples
 
 Working examples that demonstrate how to use
-[Contracteer](https://github.com/sabai-tech/contracteer)
+[Contracteer](https://github.com/contracteer-dev/contracteer)
 for contract testing with OpenAPI documents.
 
 For concepts, getting started guides, and troubleshooting, see the
-[Contracteer documentation](https://sabai-tech.github.io/contracteer/latest/).
+[Contracteer documentation](https://contracteer.dev/latest/).
 
 ## Which Example Is for Me?
 
@@ -36,7 +36,7 @@ contracteer-examples/
 ## Prerequisites
 
 - Java 21
-- Contracteer available (from Maven Central or Maven Local)
+- Contracteer 4.0.0
 
 ## Getting Started
 

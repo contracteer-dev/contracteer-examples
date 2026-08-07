@@ -2,12 +2,12 @@
 
 Spring Boot client for the Musketeer API, tested against a
 Contracteer mock server using
-[contracteer-mockserver-spring](https://github.com/sabai-tech/contracteer/tree/main/contracteer-mockserver-spring).
+[contracteer-mockserver-spring](https://github.com/contracteer-dev/contracteer/tree/main/contracteer-mockserver-spring).
 This project walks through the test setup, how the mock
 server validates requests and determines responses, and
 what each test exercises.
 
-See the [Mock an API with Spring Boot](https://sabai-tech.github.io/contracteer/latest/getting-started/mockserver-spring/) guide for the full documentation.
+See the [Mock an API with Spring Boot](https://contracteer.dev/latest/getting-started/mockserver-spring/) guide for the full documentation.
 
 ## Prerequisites
 
@@ -19,10 +19,10 @@ See the [Mock an API with Spring Boot](https://sabai-tech.github.io/contracteer/
 
 ```kotlin
 // Mock server (Spring integration)
-testImplementation("tech.sabai.contracteer:contracteer-mockserver-spring:<version>")
+testImplementation("dev.contracteer:contracteer-mockserver-spring:4.0.0")
 
 // OpenAPI document
-implementation("tech.sabai.contracteer.examples:musketeer-spec:1.0.0")
+implementation("com.musketeer:musketeer-spec:1.0.0")
 ```
 
 ## Mock Server Setup

@@ -26,7 +26,7 @@ The spec is packaged as a JAR and published to Maven Local.
 ./gradlew publishToMavenLocal
 ```
 
-This publishes `tech.sabai.contracteer.examples:musketeer-spec:1.0.0`
+This publishes `com.musketeer:musketeer-spec:1.0.0`
 to your local Maven repository. All example projects depend on this
 artifact.
 
@@ -35,7 +35,7 @@ artifact.
 Each consumer project declares a dependency on this artifact:
 
 ```kotlin
-implementation("tech.sabai.contracteer.examples:musketeer-spec:1.0.0")
+implementation("com.musketeer:musketeer-spec:1.0.0")
 ```
 
 The OpenAPI document is on the classpath and accessible via

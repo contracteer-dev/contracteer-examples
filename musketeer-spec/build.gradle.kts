@@ -3,7 +3,7 @@ plugins {
     `maven-publish`
 }
 
-group = "tech.sabai.contracteer.examples"
+group = "com.musketeer"
 version = "1.0.0"
 
 java {

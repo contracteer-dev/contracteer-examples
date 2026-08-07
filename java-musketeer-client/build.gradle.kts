@@ -2,7 +2,7 @@ plugins {
     java
 }
 
-group = "tech.sabai.contracteer.examples"
+group = "com.musketeer"
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -18,12 +18,12 @@ repositories {
 
 dependencies {
     // OpenAPI document
-    implementation("tech.sabai.contracteer.examples:musketeer-spec:1.0.0")
+    implementation("com.musketeer:musketeer-spec:1.0.0")
 
     // JSON serialization
     implementation("com.fasterxml.jackson.core:jackson-databind:2.18.3")
 
-    testImplementation("tech.sabai.contracteer:contracteer-mockserver:3.1.0")
+    testImplementation("dev.contracteer:contracteer-mockserver:4.0.0")
     testImplementation("org.assertj:assertj-core:3.27.3")
     testImplementation("org.junit.jupiter:junit-jupiter:5.11.4")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")

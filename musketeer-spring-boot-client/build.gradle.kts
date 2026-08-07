@@ -4,7 +4,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.7"
 }
 
-group = "tech.sabai.contracteer.examples"
+group = "com.musketeer"
 version = "0.0.1-SNAPSHOT"
 
 java {
@@ -25,10 +25,10 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-web")
 
     // OpenAPI document
-    implementation("tech.sabai.contracteer.examples:musketeer-spec:1.0.0")
+    implementation("com.musketeer:musketeer-spec:1.0.0")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("tech.sabai.contracteer:contracteer-mockserver-spring:3.1.0")
+    testImplementation("dev.contracteer:contracteer-mockserver-spring:4.0.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 

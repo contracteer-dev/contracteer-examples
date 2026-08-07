@@ -10,7 +10,7 @@ intentionally minimal: `java.net.http.HttpClient` with
 Jackson. The focus is on the mock server integration, not
 the client itself.
 
-See the [Mock an API Programmatically](https://sabai-tech.github.io/contracteer/latest/getting-started/mockserver/) guide for the full documentation.
+See the [Mock an API Programmatically](https://contracteer.dev/latest/getting-started/mockserver/) guide for the full documentation.
 
 ## Prerequisites
 
@@ -22,10 +22,10 @@ See the [Mock an API Programmatically](https://sabai-tech.github.io/contracteer/
 
 ```kotlin
 // Mock server (test dependency)
-testImplementation("tech.sabai.contracteer:contracteer-mockserver:<version>")
+testImplementation("dev.contracteer:contracteer-mockserver:4.0.0")
 
 // OpenAPI document (on the classpath)
-implementation("tech.sabai.contracteer.examples:musketeer-spec:1.0.0")
+implementation("com.musketeer:musketeer-spec:1.0.0")
 ```
 
 ## The Client

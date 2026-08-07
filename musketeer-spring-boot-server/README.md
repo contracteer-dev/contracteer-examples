@@ -2,11 +2,11 @@
 
 Spring Boot implementation of the Musketeer API, verified
 against its OpenAPI document using
-[contracteer-verifier-junit](https://github.com/sabai-tech/contracteer/tree/main/contracteer-verifier-junit).
+[contracteer-verifier-junit](https://github.com/contracteer-dev/contracteer/tree/main/contracteer-verifier-junit).
 This project walks through the setup, the test data
 strategy, and what Contracteer generates from the spec.
 
-See the [Verify Your API with JUnit 5](https://sabai-tech.github.io/contracteer/latest/getting-started/verifier-junit/) guide for the full documentation.
+See the [Verify Your API with JUnit 5](https://contracteer.dev/latest/getting-started/verifier-junit/) guide for the full documentation.
 
 ## Prerequisites
 
@@ -18,10 +18,10 @@ See the [Verify Your API with JUnit 5](https://sabai-tech.github.io/contracteer/
 
 ```kotlin
 // Contract verification
-testImplementation("tech.sabai.contracteer:contracteer-verifier-junit:<version>")
+testImplementation("dev.contracteer:contracteer-verifier-junit:4.0.0")
 
 // OpenAPI document
-implementation("tech.sabai.contracteer.examples:musketeer-spec:1.0.0")
+implementation("com.musketeer:musketeer-spec:1.0.0")
 ```
 
 ## The Contract Test
