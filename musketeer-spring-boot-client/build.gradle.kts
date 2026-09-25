@@ -28,7 +28,7 @@ dependencies {
     implementation("com.musketeer:musketeer-spec:1.0.0")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
-    testImplementation("dev.contracteer:contracteer-mockserver-spring:4.0.0")
+    testImplementation("dev.contracteer:contracteer-mockserver-spring:4.1.0")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }
 

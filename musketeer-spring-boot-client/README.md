@@ -19,7 +19,7 @@ See the [Mock an API with Spring Boot](https://contracteer.dev/latest/getting-st
 
 ```kotlin
 // Mock server (Spring integration)
-testImplementation("dev.contracteer:contracteer-mockserver-spring:4.0.0")
+testImplementation("dev.contracteer:contracteer-mockserver-spring:4.1.0")
 
 // OpenAPI document
 implementation("com.musketeer:musketeer-spec:1.0.0")

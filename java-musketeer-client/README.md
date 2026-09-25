@@ -22,7 +22,7 @@ See the [Mock an API Programmatically](https://contracteer.dev/latest/getting-st
 
 ```kotlin
 // Mock server (test dependency)
-testImplementation("dev.contracteer:contracteer-mockserver:4.0.0")
+testImplementation("dev.contracteer:contracteer-mockserver:4.1.0")
 
 // OpenAPI document (on the classpath)
 implementation("com.musketeer:musketeer-spec:1.0.0")
