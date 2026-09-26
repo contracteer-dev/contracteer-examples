@@ -18,7 +18,7 @@ See the [Verify Your API with JUnit 5](https://contracteer.dev/latest/getting-st
 
 ```kotlin
 // Contract verification
-testImplementation("dev.contracteer:contracteer-verifier-junit:4.1.0")
+testImplementation("dev.contracteer:contracteer-verifier-junit:4.1.1")
 
 // OpenAPI document
 implementation("com.musketeer:musketeer-spec:1.0.0")

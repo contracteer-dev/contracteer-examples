@@ -36,7 +36,7 @@ contracteer-examples/
 ## Prerequisites
 
 - Java 21
-- Contracteer 4.1.0
+- Contracteer 4.1.1
 
 ## Getting Started
 
